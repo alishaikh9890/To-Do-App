@@ -1,0 +1,202 @@
+.App {
+  width: 50%;
+  text-align: center;
+  /* border: 1px solid red; */
+  margin: 5vh;
+display: flex;
+flex-direction: column;
+margin: auto;
+gap: 5vh;
+background-color: black;
+border-radius: 3vh;
+box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.App > h2{
+  color: white;
+  background-color: green;
+}
+
+
+/* /////////////// INPUT /////////////////////////// */
+
+
+.input{
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+  background-color: rgb(174, 120, 232);
+  border-radius: 10px;
+  padding: 2vh;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.input input{
+  padding: 1vh;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 40vh;
+}
+
+.input button{
+  padding: 1vh 3vh;
+  margin: auto;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+ 
+}
+.input button:hover{
+  background-color: rgb(0, 255, 247);
+  color: black;
+}
+
+
+/* /////////////// FILTERS /////////////////////////// */
+
+
+.Filters{
+  /* border: 1px solid red; */
+  width: 84%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  height: 6vh;
+  border-radius: 5px;
+  
+}
+
+.filter{
+  z-index: 1;
+  /* border: 1px solid black; */
+  background-color: #d4f1f9;
+  /* border: 1px solid gray; */
+  width: 22vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 44px;
+  overflow: hidden;
+  
+}
+
+
+.filter:hover{
+  height: 174px;
+  transition: .5s 0s height;
+}
+
+.buttons button{
+  width: 20vh;
+  margin: 0 1vh;
+  
+  padding: 1vh 5vh;
+  font-size: 15px;
+  text-align: start;
+  background-color: gray;
+  font-weight: 600;
+  border: none;
+  /* border-top: 1px solid black; */
+  /* border-bottom: 1px solid black; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+
+.buttons button:hover{
+  background-color: rgb(5, 83, 5);
+  color: white;
+}
+
+.buttons{
+  border: 1px solid gray;
+  height: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 5px;
+}
+
+
+.filter h3{
+  margin: 0 0;
+  margin-bottom: 1.5px;
+  padding: 1.2vh ;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.Filters > button{
+  font-weight: 700;
+  font-size: 15px;
+  margin:auto 0;
+  margin-top: 0;
+  padding: 1.3vh;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 5px;
+ background-color:rgb(128, 0, 0); 
+  color: white;
+  border: 1px solid whitesmoke;
+}
+
+.Filters > button:hover{
+  color: rgb(89, 0, 0);
+  background-color: white;
+  border: 3px solid rgb(106, 12, 12);
+}
+
+
+
+/* /////////////// LIST /////////////////////////// */
+
+
+
+.tasks{
+  color:white;
+  margin: auto;
+  width: 84%;
+  /* border: 1px solid red; */
+  padding:2vh 2vh;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  border-radius: 5px;
+}
+
+.todo{
+  background-color: white;
+text-align: start;
+display: grid;
+grid-template-columns: 40% 15% 15% 15%;
+gap:20px;
+border: 1px solid blue;
+padding: 1vh;
+}
+
+.todo h3{
+  border: 1px solid green;
+  margin: auto 0;
+}
+
+.todo input{
+  margin: auto ;
+  height: 20px;
+  width: 20px;
+}
+
+.todo button{
+  
+  width: 9vh;
+  margin: auto auto ;
+  font-size: 15px;
+  font-weight: 700;
+  /* padding: .2vh 1vh; */
+}
+
