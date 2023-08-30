@@ -151,8 +151,7 @@ React.useEffect(() => {
           { editId === todo.id ? 
 
             <input 
-            style={{width:"80%", fontSize:"17px", padding:"3px",
-          marginLeft:"10px"}}
+            id='updateinput'
                 value={editTitle}
                 type="text"
                 onChange={(e) => setEditTitle(e.target.value)}
