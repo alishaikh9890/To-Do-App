@@ -7,14 +7,32 @@ display: flex;
 flex-direction: column;
 margin: auto;
 gap: 5vh;
-background-color: black;
+background-color: #000000;
+background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
 border-radius: 3vh;
 box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-.App > h2{
+.h2{
+  margin-top: 2.5vh;
+  /* border-radius: 20px; */
   color: white;
-  background-color: green;
+  background-color: #015d00;
+background-image: linear-gradient(314deg, #015d00 0%, #04bf00 74%);
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1vh 3vh;
+ 
+}
+.h2 h2{
+  margin: auto;
+}
+
+.icon{
+  font-size: 30px;
+  color: white;
 }
 
 
@@ -27,7 +45,8 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
   justify-content: space-evenly;
   width: 80%;
   margin: auto;
-  background-color: rgb(174, 120, 232);
+  background-color: mediumslateblue;
+
   border-radius: 10px;
   padding: 2vh;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -48,10 +67,12 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
   background-color: black;
   color: white;
   border-radius: 5px;
+
  
 }
 .input button:hover{
-  background-color: rgb(0, 255, 247);
+  background-color: rgb(193, 218, 32);
+
   color: black;
 }
 
@@ -66,14 +87,15 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
   display: flex;
   justify-content: space-between;
   height: 6vh;
-  border-radius: 5px;
+  
   
 }
 
 .filter{
+  border-radius: 5px;
   z-index: 1;
-  /* border: 1px solid black; */
-  background-color: #d4f1f9;
+  /* border: 1px solid white; */
+ 
   /* border: 1px solid gray; */
   width: 22vh;
   display: flex;
@@ -81,7 +103,7 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
   justify-content: space-between;
   height: 44px;
   overflow: hidden;
-  
+  color: white;
 }
 
 
@@ -100,7 +122,7 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
   background-color: gray;
   font-weight: 600;
   border: none;
-  /* border-top: 1px solid black; */
+  border: 1px solid black;
   /* border-bottom: 1px solid black; */
   display: flex;
   /* justify-content: center; */
@@ -111,26 +133,50 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
 
 
 .buttons button:hover{
-  background-color: rgb(5, 83, 5);
+  background-color: teal;
+  /* background-color: rgb(2, 88, 122); */
   color: white;
+  border: 1px solid white;
 }
 
 .buttons{
-  border: 1px solid gray;
+  /* background-color: #d4f1f9; */
+  background-color: black;
+  border: 1px solid white;
   height: 128px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 
-.filter h3{
-  margin: 0 0;
+.h3{
+  display: flex;
+  justify-content: center;
+  
   margin-bottom: 1.5px;
-  padding: 1.2vh ;
-  border: 1px solid black;
-  border-radius: 5px;
+  /* padding: 1.2vh  0; */
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: rgb(48, 25, 52);
+}
+.h3 h3{
+  margin: auto;
+}
+
+.h3 h3:last-child{
+position: relative;
+bottom: 5px;
+  font-size: 34px;
+}
+
+.down{
+  font-size: 20px;
+  border: none;
+  margin: 0 0;
+  margin-top: 0;
+ 
 }
 
 .Filters > button{
@@ -159,30 +205,34 @@ box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0p
 
 
 .tasks{
-  color:white;
+  color:black;
   margin: auto;
   width: 84%;
   /* border: 1px solid red; */
   padding:2vh 2vh;
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap:20px;
   border-radius: 5px;
 }
 
 .todo{
-  background-color: white;
-text-align: start;
+
+  text-align: start;
 display: grid;
-grid-template-columns: 40% 15% 15% 15%;
+grid-template-columns: 30% 15% 15% 15%;
 gap:20px;
-border: 1px solid blue;
-padding: 1vh;
+/* border: 5px solid white; */
+padding: 5px;
+
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.todo h3{
-  border: 1px solid green;
+.todo p{
+  padding-left: 2vh;
   margin: auto 0;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .todo input{
@@ -191,12 +241,73 @@ padding: 1vh;
   width: 20px;
 }
 
-.todo button{
-  
+.todo button{ 
   width: 9vh;
   margin: auto auto ;
   font-size: 15px;
   font-weight: 700;
-  /* padding: .2vh 1vh; */
+  
 }
 
+.edit{
+  color: white;
+  background-color: #00008b;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.edit:hover{
+  color: #00008b;
+  background-color: white;
+  border: 2px solid #00008b;
+}
+
+
+.todo button:last-child{
+  background-color: rgb(106, 12, 12);
+  color: white;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.todo button:last-child:hover{
+background-color: white;
+color: rgb(107, 0, 0);
+border: 2px solid rgb(108, 2, 2);
+}
+
+.footer{
+  color:white;
+  background-color: #0abcf9;
+  background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
+padding: 2vh;
+margin-bottom: 2.5vh;
+}
+
+
+@media screen and (max-width: 377px){
+.App{
+  width: 100%;
+}
+
+.input{
+  width: 95%;
+}
+.Filters{
+  width: 95%;
+}
+
+.tasks{
+  width: 95%;
+}
+
+.todo{
+  display: flex;
+  justify-content: space-between;
+
+}
+.todo > input{
+  width: 30%;
+}
+
+}

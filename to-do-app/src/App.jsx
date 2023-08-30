@@ -2,6 +2,11 @@ import React from 'react';
 import {v4 as uuid} from "uuid"
 import './App.css';
 
+import { FcTodoList } from 'react-icons/fc';
+import { FaRegUserCircle } from 'react-icons/fa';
+
+
+
 function App() {
 
 const [input, setInput] = React.useState("")
@@ -69,8 +74,12 @@ const handleClear = () => {
 
   return (
     <div className="App">
-
-    <h2>TO-DO APP</h2>
+      <div className='h2'>
+        <FcTodoList className='icon'/>
+        <h2>TO-DO APP</h2>
+        <FaRegUserCircle className='icon'/>
+      </div>
+    
 
       <div className='input'>
           <input type="text" 
@@ -84,7 +93,7 @@ const handleClear = () => {
       
       <div className='Filters'>
       <div className='filter'>
-        <h3>Filter</h3>
+        <div className='h3'><h3>Filter</h3><h3>⌵</h3></div>
         <div className='buttons'>
           <button onClick={() => setShow(null)}>Show All</button>
           <button onClick={() => setShow(true)}>Completed</button>
@@ -96,15 +105,27 @@ const handleClear = () => {
       </div>
 
       <div className='tasks'>
+      
         {data
           .filter((todo) => (show === null ? todo : show ? todo.status : !todo.status))
           .map(todo => <div className='todo'
+
+          style={
+            todo.status ? 
+            {backgroundColor:"#deebdd",
+            backgroundImage: "linear-gradient(315deg, #deebdd 0%, #bbdbbe 74%)"
+          } :
+            {backgroundColor: "#f6ecc4",
+              backgroundImage: "linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%)"
+            }
+          } 
+
                               key={todo.id}
                               >
          
 {/* ////////////////// TODO ///////////////////////////////////////////////////*/}
 
-          <h3>{todo.title}</h3>
+          <p>{todo.title}</p>
 
 {/* ////////////////// CHECKBOX ///////////////////////////////////////////////////*/}
 
@@ -115,7 +136,7 @@ const handleClear = () => {
 {/* ////////////////// EDIT ///////////////////////////////////////////////////*/}
 
           <button 
-          style={{margin:"auto 0"}}
+          className='edit'
           onClick = {() => handleEdit(todo.id, todo.title)}
           >
           Edit
@@ -124,15 +145,18 @@ const handleClear = () => {
 {/* ////////////////// DELETE ///////////////////////////////////////////////////*/}
 
           <button 
-          style={{margin:"auto 0"}}
+       
           onClick = {() => handleDelete(todo.id)}
           >
           Delete
           </button>
-
+ 
           </div>
+         
           )}
+         
       </div>
+      <div className='footer'>footer</div>
     </div>
   );
 }
