@@ -6,7 +6,6 @@ import { FcTodoList } from 'react-icons/fc';
 import { FaRegUserCircle } from 'react-icons/fa';
 
 
-
 function App() {
 
 const [input, setInput] = React.useState("")
@@ -19,34 +18,50 @@ const [show, setShow] = React.useState(null)
 
 const handleTodo = () => {
 
-  if(editId !== null) {
-    const update = data.map((el) => 
-    el.id === editId ? {...el, title:input} : el
-    )
-    setData(update)
-    setEditId(null)
-    setInput("")
-  } else {
+  // if(editId !== null) {
+  //   const update = data.map((el) => 
+  //   el.id === editId ? {...el, title:input} : el
+  //   )
+  //   setData(update)
+  //   localStorage.setItem("todoData", JSON.stringify(update))
+  //   setEditId(null)
+  //   setInput("")
+  // } else {
 
   const payload = {
     title:input,
     status:false,
     id:uuid()
   }
-  setData([...data, payload])
+  const newData=([...data, payload])
+  setData(newData)
+
+  localStorage.setItem("todoData", JSON.stringify(newData))
+  
   setInput("")
 }
-}
+// }
 const handleDelete = (id) => {
   const update = data.filter((el) => el.id !== id);
+  console.log(update)
   setData(update)
+  localStorage.setItem("todoData", JSON.stringify(update))
 }
 
 
-const handleEdit = (id, title) => {
+const handleEdit = (id, val) => {
+if(setEditId == id) {
+  const update = data.map((el) => 
+  el.id === id ? {...el, title:editTitle} : el
+  ) 
+  setData(update)
+  localStorage.setItem("todoData", JSON.stringify(update))
+  setEditId(null)
+  setEditTitle("")
+} else{
   setEditId(id)
-  setEditTitle(title)
-  setInput(title)
+  setEditTitle(val)
+}
 }
 
 
@@ -55,6 +70,7 @@ const handleCheck = (id) => {
     el.id === id ? { ...el, status: !el.status } : el
   );
   setData(update);
+  localStorage.setItem("todoData", JSON.stringify(update))
 }
 
 
@@ -62,14 +78,21 @@ const handleFilter = (stat) => {
   const update = data.map((el) => 
   el.status === stat )
   setData(update)
+  localStorage.setItem("todoData", JSON.stringify(update))
 }
 
 
 const handleClear = () => {
   const update = data.filter((el) => el.status !== true)
   setData(update)
+  localStorage.setItem("todoData", JSON.stringify(update))
 }
 
+
+React.useEffect(() => {
+  const storedData = JSON.parse(localStorage.getItem('todoData')) || [];
+  setData(storedData);
+}, []);
 
 
   return (
@@ -88,7 +111,7 @@ const handleClear = () => {
           value={input}
           />
          
-          <button onClick={() => handleTodo()}>{editId === null ?  "Add" : "Update"}</button>
+          <button onClick={() => handleTodo()}>Add</button>
       </div>
       
       <div className='Filters'>
@@ -105,10 +128,15 @@ const handleClear = () => {
       </div>
 
       <div className='tasks'>
-      
-        {data
+
+
+
+        {
+          data
           .filter((todo) => (show === null ? todo : show ? todo.status : !todo.status))
-          .map(todo => <div className='todo'
+          .map((todo) => (
+
+            <div className='todo'
 
           style={
             todo.status ? 
@@ -119,13 +147,20 @@ const handleClear = () => {
               backgroundImage: "linear-gradient(315deg, #f6ecc4 0%, #f7d4d4 74%)"
             }
           } 
-
-                              key={todo.id}
-                              >
-         
+            key={todo.id}
+            >
+      
 {/* ////////////////// TODO ///////////////////////////////////////////////////*/}
 
-          <p>{todo.title}</p>
+          { editId === todo.id ? 
+
+            <input 
+                value={editTitle}
+                type="text"
+                onChange={(e) => setEditTitle(e.target.value)}
+                /> 
+            :
+            <p>{todo.title}</p> }
 
 {/* ////////////////// CHECKBOX ///////////////////////////////////////////////////*/}
 
@@ -139,7 +174,7 @@ const handleClear = () => {
           className='edit'
           onClick = {() => handleEdit(todo.id, todo.title)}
           >
-          Edit
+          {editId === todo.id ?  "Update" : "Edit"}
           </button>
 
 {/* ////////////////// DELETE ///////////////////////////////////////////////////*/}
@@ -152,8 +187,8 @@ const handleClear = () => {
           </button>
  
           </div>
-         
-          )}
+  ))}
+
          
       </div>
       <div className='footer'>footer</div>
