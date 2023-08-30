@@ -120,7 +120,7 @@ React.useEffect(() => {
          </div>
      </div>
         
-      <button onClick={handleClear}>Clear Complete Task</button>
+      <button onClick={handleClear}>Clear Completed</button>
       </div>
 
       <div className='tasks'>
@@ -151,7 +151,8 @@ React.useEffect(() => {
           { editId === todo.id ? 
 
             <input 
-            style={{width:"30%", fontSize:"17px"}}
+            style={{width:"80%", fontSize:"17px", padding:"3px",
+          marginLeft:"10px"}}
                 value={editTitle}
                 type="text"
                 onChange={(e) => setEditTitle(e.target.value)}

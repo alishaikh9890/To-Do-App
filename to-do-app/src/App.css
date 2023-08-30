@@ -171,14 +171,6 @@ bottom: 5px;
   font-size: 34px;
 }
 
-.down{
-  font-size: 20px;
-  border: none;
-  margin: 0 0;
-  margin-top: 0;
- 
-}
-
 .Filters > button{
   font-weight: 700;
   font-size: 15px;
@@ -229,7 +221,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
 }
 
 .todo p{
-  padding-left: 2vh;
+  padding-left: 1vh;
   margin: auto 0;
   font-weight: 600;
   font-size: 18px;
@@ -298,7 +290,8 @@ margin-bottom: 2.5vh;
   width: 50%;
 }
 .Filters{
-  width: 88%;
+  width: 90%;
+  /* border: 1px solid red; */
 }
 .filter{
   /* border: 1px solid wheat; */
@@ -336,6 +329,14 @@ padding: 1vh;
 
 .edit{
   margin-right: 50px;
+}
+
+.h3 > h3:first-child{
+  font-size: 17px;
+}
+.h3 > h3:last-child{
+font-size: 26px;
+font-weight: 500;
 }
 
 
