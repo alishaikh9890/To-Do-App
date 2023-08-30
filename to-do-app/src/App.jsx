@@ -3,7 +3,9 @@ import {v4 as uuid} from "uuid"
 import './App.css';
 
 import { FcTodoList } from 'react-icons/fc';
-import { FaRegUserCircle } from 'react-icons/fa';
+import { FaRegUserCircle, FaTooth } from 'react-icons/fa';
+
+
 
 
 function App() {
@@ -18,15 +20,9 @@ const [show, setShow] = React.useState(null)
 
 const handleTodo = () => {
 
-  // if(editId !== null) {
-  //   const update = data.map((el) => 
-  //   el.id === editId ? {...el, title:input} : el
-  //   )
-  //   setData(update)
-  //   localStorage.setItem("todoData", JSON.stringify(update))
-  //   setEditId(null)
-  //   setInput("")
-  // } else {
+  if(input.trim() === "") {
+      alert("please Add Todo !")
+   } else {
 
   const payload = {
     title:input,
@@ -40,24 +36,24 @@ const handleTodo = () => {
   
   setInput("")
 }
-// }
+ }
 const handleDelete = (id) => {
   const update = data.filter((el) => el.id !== id);
-  console.log(update)
   setData(update)
   localStorage.setItem("todoData", JSON.stringify(update))
 }
 
 
 const handleEdit = (id, val) => {
-if(setEditId == id) {
+if(editId === id) {
   const update = data.map((el) => 
   el.id === id ? {...el, title:editTitle} : el
   ) 
   setData(update)
+  console.log(update)
   localStorage.setItem("todoData", JSON.stringify(update))
   setEditId(null)
-  setEditTitle("")
+ 
 } else{
   setEditId(id)
   setEditTitle(val)
@@ -155,6 +151,7 @@ React.useEffect(() => {
           { editId === todo.id ? 
 
             <input 
+            style={{width:"30%", fontSize:"17px"}}
                 value={editTitle}
                 type="text"
                 onChange={(e) => setEditTitle(e.target.value)}
@@ -165,8 +162,6 @@ React.useEffect(() => {
 {/* ////////////////// CHECKBOX ///////////////////////////////////////////////////*/}
 
           <input type="checkbox" checked={todo.status} onChange={() => handleCheck(todo.id)}/>
-
-        
 
 {/* ////////////////// EDIT ///////////////////////////////////////////////////*/}
 
